@@ -1,0 +1,38 @@
+{
+  "schema": "personal-workbench.domain-dictionary.v1",
+  "version": "1",
+  "domains": {
+    "communication": [
+      { "canonical": "IQ信号", "aliases": ["IQ型号", "IQ 信号"] },
+      { "canonical": "I路", "aliases": ["I 路", "一路"] },
+      { "canonical": "Q路", "aliases": ["Q 路"] },
+      { "canonical": "正交", "aliases": ["核插", "合插"] },
+      { "canonical": "正交分量", "aliases": ["正交份量"] },
+      { "canonical": "载波", "aliases": ["在波"] },
+      { "canonical": "频率偏移", "aliases": ["频率的便宜", "频率偏意"] },
+      { "canonical": "采样率", "aliases": ["彩样率"] }
+    ],
+    "mathematics": [
+      { "canonical": "cos", "aliases": ["Ca", "COS", "cosine"] },
+      { "canonical": "sin", "aliases": ["Si", "SIN", "sine"] },
+      { "canonical": "余弦函数", "aliases": ["余显寒数", "余弦寒数", "余显函数"] },
+      { "canonical": "正弦函数", "aliases": ["正显函数", "正弦寒数"] },
+      { "canonical": "相位", "aliases": ["向位", "项位", "出项位"] },
+      { "canonical": "相位差", "aliases": ["向位差", "项位差"] },
+      { "canonical": "三角函数", "aliases": ["三角寒数"] }
+    ],
+    "computing": [
+      { "canonical": "CPU", "aliases": ["C P U"] },
+      { "canonical": "GPU", "aliases": ["G P U"] },
+      { "canonical": "FFT", "aliases": ["F F T"] },
+      { "canonical": "Python", "aliases": ["派森"] },
+      { "canonical": "JSON", "aliases": ["杰森"] }
+    ],
+    "physics": [
+      { "canonical": "电磁波", "aliases": ["电滋波"] },
+      { "canonical": "幅度", "aliases": ["福度"] },
+      { "canonical": "赫兹", "aliases": ["赫子"] },
+      { "canonical": "复数基带", "aliases": ["复数基代"] }
+    ]
+  }
+}

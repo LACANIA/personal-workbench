@@ -1,0 +1,87 @@
+{
+  "name": "@local/personal-workbench",
+  "version": "0.3.0-beta.1",
+  "private": true,
+  "type": "module",
+  "description": "Local-first personal knowledge and file organization workbench",
+  "author": "Personal Workbench",
+  "main": "desktop/main.mjs",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "pnpm run build:web && pnpm run check:server",
+    "build:web": "vite build --config web/vite.config.ts",
+    "check:server": "tsc -p server/tsconfig.json --noEmit",
+    "dev": "tsx server/src/index.ts --dev",
+    "start": "tsx server/src/index.ts",
+    "test": "vitest run --config vitest.config.ts",
+    "test:watch": "vitest --config vitest.config.ts",
+    "release": "powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File distribution/build-release-package.ps1",
+    "build:server:production": "tsc -p server/tsconfig.production.json",
+    "desktop:build": "pnpm run build:web && pnpm run build:server:production && node distribution/prepare-desktop-runtime.mjs",
+    "desktop:dev": "pnpm run desktop:build && electron .",
+    "desktop:package": "pnpm run desktop:build && electron-builder --win nsis --x64 && node distribution/finalize-desktop-release.mjs"
+  },
+  "dependencies": {
+    "jsdom": "29.1.1",
+    "pdfjs-dist": "6.3.289",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^22.20.0",
+    "@types/react": "~18.3.1",
+    "@types/react-dom": "~18.3.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vite": "^6.4.1",
+    "vitest": "^4.1.8",
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "build": {
+    "appId": "local.personalworkbench.desktop",
+    "productName": "Personal Workbench",
+    "asar": true,
+    "compression": "normal",
+    "files": [
+      "desktop/main.mjs",
+      "desktop/preload.cjs",
+      "desktop/runtime.mjs",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "desktop-release/app-runtime",
+        "to": "app-runtime",
+        "filter": ["**/*"]
+      }
+    ],
+    "directories": {
+      "output": "dist-desktop",
+      "buildResources": "desktop-release/app-runtime/assets"
+    },
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "desktop-release/app-runtime/assets/app-icon.ico",
+      "artifactName": "Personal-Workbench-Setup-${version}-x64.${ext}",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "Personal Workbench",
+      "uninstallDisplayName": "Personal Workbench",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

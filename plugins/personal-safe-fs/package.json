@@ -1,0 +1,15 @@
+{
+  "name": "@local/personal-safe-fs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": "./src/index.js",
+  "scripts": {
+    "test": "node --test ../../tests/personal-safe-fs.test.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "0.1.0-rc.5",
+    "@vscode/ripgrep": "1.18.0"
+  }
+}

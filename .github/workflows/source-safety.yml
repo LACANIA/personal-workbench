@@ -1,0 +1,19 @@
+name: source-safety
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Audit tracked source
+        run: node scripts/release-source-audit.mjs --tracked

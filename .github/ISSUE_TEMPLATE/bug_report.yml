@@ -1,0 +1,86 @@
+name: Bug report
+description: 报告可以重复出现的 Personal Workbench 功能问题
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请使用无敏感内容的测试材料。不要上传私人文档、密码、API Key、完整私人目录截图或未经检查的诊断包。
+  - type: input
+    id: version
+    attributes:
+      label: Personal Workbench 版本
+      placeholder: 例如 0.3.0-beta.1
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows 版本
+      placeholder: 例如 Windows 11 24H2
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: 问题发生位置
+      options:
+        - 安装或首次运行
+        - 文档导入或解析
+        - 学习资料或 Word 输出
+        - 资料问答或检索
+        - 视频处理
+        - 文件整理或撤销
+        - 设置或系统状态
+        - 托盘或退出
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请用无敏感测试数据描述完整操作顺序。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+    validations:
+      required: true
+  - type: dropdown
+    id: repeatable
+    attributes:
+      label: 是否可以重复出现
+      options:
+        - 每次出现
+        - 偶尔出现
+        - 只出现一次
+        - 尚未确认
+    validations:
+      required: true
+  - type: dropdown
+    id: diagnostic
+    attributes:
+      label: 是否有经过检查的诊断包
+      options:
+        - 有，可以按需提供
+        - 没有
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 隐私确认
+      options:
+        - label: 我已经检查描述、截图和附件，其中没有私人文件、密码、API Key 或完整私人目录信息。
+          required: true

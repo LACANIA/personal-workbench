@@ -1,0 +1,148 @@
+{
+  "schema": "personal-workbench.knowledge-benchmark.v1",
+  "frozen_at": "2026-08-24T00:30:00.000Z",
+  "source_benchmark": "step30-retrieval-benchmark.json",
+  "policy": "评测片段、关键词与查询在结构化提取前冻结，运行后禁止根据结果调整。",
+  "segments": [
+    {
+      "segment_id": "seg-iq", "start_ms": 34000, "end_ms": 72000,
+      "source_text": "I分量和Q分量在相位上相差九十度，正交表示能够同时承载幅度与相位信息，并形成复数基带信号。",
+      "legacy_text": "I分量和Q分量在相位上相差九十度，正交表示能够同时承载幅度与相位信息，并形成复数基带信号。",
+      "expected_concepts": ["IQ信号", "正交分量"], "required_terms": ["I", "Q", "正交"],
+      "forbidden_new_numeric_claims": true, "query": "无线通信为什么要拆成两路互相垂直的信号？", "ground_truth_id": "seg-iq"
+    },
+    {
+      "segment_id": "seg-doppler", "start_ms": 73000, "end_ms": 106000,
+      "source_text": "低轨卫星高速运动引起明显的多普勒频移，接收机可以利用频率随时间的变化约束位置。",
+      "legacy_text": "低轨卫星高速运动引起明显的多普勒频移，接收机可以利用频率随时间的变化约束位置。",
+      "expected_concepts": ["低轨卫星", "多普勒定位"], "required_terms": ["多普勒", "位置"],
+      "forbidden_new_numeric_claims": true, "query": "怎样利用卫星速度造成的频率漂移来估计接收机位置？", "ground_truth_id": "seg-doppler"
+    },
+    {
+      "segment_id": "seg-asr-gpu", "start_ms": 12000, "end_ms": 44000,
+      "source_text": "faster-whisper通过CTranslate2调用CUDA运行库，GPU可用时使用float16执行离线语音识别。",
+      "legacy_text": "faster-whisper通过CTranslate2调用CUDA运行库，GPU可用时使用float16执行离线语音识别。",
+      "expected_concepts": ["离线语音识别", "GPU运行时"], "required_terms": ["faster-whisper", "CUDA", "float16"],
+      "forbidden_new_numeric_claims": true, "query": "本机语音识别怎样调用显卡完成转写？", "ground_truth_id": "seg-asr-gpu"
+    },
+    {
+      "segment_id": "seg-grant", "start_ms": 18000, "end_ms": 51000,
+      "source_text": "系统文件选择器产生精确文件授权，授权范围只包含用户选中的文件，任务完成后立即失效。",
+      "legacy_text": "系统文件选择器产生精确文件授权，授权范围只包含用户选中的文件，任务完成后立即失效。",
+      "expected_concepts": ["临时输入授权", "精确文件范围"], "required_terms": ["文件选择器", "授权", "失效"],
+      "forbidden_new_numeric_claims": true, "query": "用户只选了一个外部文件时，怎样限制程序不要读取旁边的文件？", "ground_truth_id": "seg-grant"
+    },
+    {
+      "segment_id": "seg-inbox", "start_ms": 5000, "end_ms": 26000,
+      "source_text": "没有明确项目归属的临时分析任务会关联Personal Inbox，报告统一写入受控输出目录。",
+      "legacy_text": "没有明确项目归属的临时分析任务会关联Personal Inbox，报告统一写入受控输出目录。",
+      "expected_concepts": ["Personal Inbox", "临时任务"], "required_terms": ["Personal Inbox", "输出目录"],
+      "forbidden_new_numeric_claims": true, "query": "临时任务没有正式项目时，生成的报告放到哪里？", "ground_truth_id": "seg-inbox"
+    },
+    {
+      "segment_id": "seg-provenance", "start_ms": 62000, "end_ms": 92000,
+      "source_text": "Provenance Graph使用节点与关系描述成果、任务、会话、记忆和文档分块之间的来源链。",
+      "legacy_text": "Provenance Graph使用节点与关系描述成果、任务、会话、记忆和文档分块之间的来源链。",
+      "expected_concepts": ["Provenance Graph", "来源链"], "required_terms": ["节点", "关系", "来源"],
+      "forbidden_new_numeric_claims": true, "query": "如何查看一份成果是由哪个任务、会话和证据产生的？", "ground_truth_id": "seg-provenance"
+    },
+    {
+      "segment_id": "seg-artifact-health", "start_ms": 30000, "end_ms": 58000,
+      "source_text": "Artifact Health比较当前文件哈希与登记哈希，文件消失时标记missing，内容变化时标记outdated。",
+      "legacy_text": "Artifact Health比较当前文件哈希与登记哈希，文件消失时标记missing，内容变化时标记outdated。",
+      "expected_concepts": ["Artifact Health", "文件状态"], "required_terms": ["哈希", "missing", "outdated"],
+      "forbidden_new_numeric_claims": true, "query": "文件内容在登记后被改动，系统会怎样标记？", "ground_truth_id": "seg-artifact-health"
+    },
+    {
+      "segment_id": "seg-fts", "start_ms": 10000, "end_ms": 39000,
+      "source_text": "SQLite FTS5的trigram分词器适合中英文三字符以上的子串检索，短查询使用受限扫描回退。",
+      "legacy_text": "SQLite FTS5的trigram分词器适合中英文三字符以上的子串检索，短查询使用受限扫描回退。",
+      "expected_concepts": ["FTS5", "短查询回退"], "required_terms": ["trigram", "子串", "回退"],
+      "forbidden_new_numeric_claims": true, "query": "中文子串索引对两个字的搜索应该怎样处理？", "ground_truth_id": "seg-fts"
+    },
+    {
+      "segment_id": "seg-backup", "start_ms": 44000, "end_ms": 69000,
+      "source_text": "数据库备份使用sqlite3 Connection backup机制，恢复副本需要再次执行完整性和外键检查。",
+      "legacy_text": "数据库备份使用sqlite3 Connection backup机制，恢复副本需要再次执行完整性和外键检查。",
+      "expected_concepts": ["SQLite备份", "恢复验证"], "required_terms": ["backup", "完整性", "外键"],
+      "forbidden_new_numeric_claims": true, "query": "数据库副本恢复以后要检查哪些一致性？", "ground_truth_id": "seg-backup"
+    },
+    {
+      "segment_id": "seg-ollama", "start_ms": 15000, "end_ms": 47000,
+      "source_text": "Workbench把模型请求限定到127.0.0.1上的Ollama端点，并关闭云端能力与遥测。",
+      "legacy_text": "Workbench把模型请求限定到127.0.0.1上的Ollama端点，并关闭云端能力与遥测。",
+      "expected_concepts": ["本机模型请求", "Ollama"], "required_terms": ["127.0.0.1", "Ollama", "遥测"],
+      "forbidden_new_numeric_claims": true, "query": "如何证明语言模型调用没有离开当前电脑？", "ground_truth_id": "seg-ollama"
+    },
+    {
+      "segment_id": "seg-node-pnpm", "start_ms": 20000, "end_ms": 48000,
+      "source_text": "项目使用pnpm 11.7.0管理工作区，Node.js版本要求为22.19或24及以上。",
+      "legacy_text": "项目使用pnpm 11.7.0管理工作区，Node.js版本要求为22.19或24及以上。",
+      "expected_concepts": ["开发运行版本", "包管理"], "required_terms": ["pnpm", "Node.js", "11.7.0"],
+      "forbidden_new_numeric_claims": true, "query": "Node pnpm版本要求", "ground_truth_id": "seg-node-pnpm"
+    },
+    {
+      "segment_id": "seg-timestamp", "start_ms": 91000, "end_ms": 124000,
+      "source_text": "每个Video Segment记录起止毫秒，检索结果通过视频标题和时间范围定位原始转录片段。",
+      "legacy_text": "每个Video Segment记录起止毫秒，检索结果通过视频标题和时间范围定位原始转录片段。",
+      "expected_concepts": ["时间轴引用", "Video Segment"], "required_terms": ["起止毫秒", "时间范围"],
+      "forbidden_new_numeric_claims": true, "query": "搜索视频知识时怎样回到对应的播放时间？", "ground_truth_id": "seg-timestamp"
+    },
+    {
+      "segment_id": "seg-review", "start_ms": 37000, "end_ms": 66000,
+      "source_text": "视频知识生成后停留在AWAITING_REVIEW，只有人工批准并通过策略检查后才可以发布。",
+      "legacy_text": "视频知识生成后停留在AWAITING_REVIEW，只有人工批准并通过策略检查后才可以发布。",
+      "expected_concepts": ["人工审核门", "发布条件"], "required_terms": ["AWAITING_REVIEW", "人工批准"],
+      "forbidden_new_numeric_claims": true, "query": "机器生成的知识能否未经人工确认直接进入长期资料？", "ground_truth_id": "seg-review"
+    },
+    {
+      "segment_id": "seg-semantic", "start_ms": 24000, "end_ms": 55000,
+      "source_text": "专用文本向量模型把意义相近而字面不同的表达映射到邻近向量，查询阶段使用余弦相似度排序。",
+      "legacy_text": "专用文本向量模型把意义相近而字面不同的表达映射到邻近向量，查询阶段使用余弦相似度排序。",
+      "expected_concepts": ["语义向量检索", "余弦相似度"], "required_terms": ["向量", "余弦相似度"],
+      "forbidden_new_numeric_claims": true, "query": "字面完全不同但含义接近的句子怎样互相检索？", "ground_truth_id": "seg-semantic"
+    },
+    {
+      "segment_id": "seg-hash", "start_ms": 8000, "end_ms": 33000,
+      "source_text": "local-hash-v1根据Unicode一到三元字符片段生成确定性256维向量，适合离线回退和索引恢复。",
+      "legacy_text": "local-hash-v1根据Unicode一到三元字符片段生成确定性256维向量，适合离线回退和索引恢复。",
+      "expected_concepts": ["基础哈希检索", "离线回退"], "required_terms": ["local-hash-v1", "Unicode", "256维"],
+      "forbidden_new_numeric_claims": true, "query": "哈希回退", "ground_truth_id": "seg-hash"
+    },
+    {
+      "segment_id": "seg-probe", "start_ms": 57000, "end_ms": 83000,
+      "source_text": "ffprobe确定性读取媒体时长、编码、分辨率、音轨和字幕轨，媒体属性不依赖语言模型猜测。",
+      "legacy_text": "ffprobe确定性读取媒体时长、编码、分辨率、音轨和字幕轨，媒体属性不依赖语言模型猜测。",
+      "expected_concepts": ["媒体属性探测", "ffprobe"], "required_terms": ["时长", "分辨率", "音轨"],
+      "forbidden_new_numeric_claims": true, "query": "媒体分辨率和音轨由什么工具读取？", "ground_truth_id": "seg-probe"
+    },
+    {
+      "segment_id": "seg-url", "start_ms": 11000, "end_ms": 41000,
+      "source_text": "Bilibili分享网址会保留BV视频标识并移除普通追踪参数，下载器不读取浏览器Cookie。",
+      "legacy_text": "Bilibili分享网址会保留BV视频标识并移除普通追踪参数，下载器不读取浏览器Cookie。",
+      "expected_concepts": ["视频网址规范化", "凭据边界"], "required_terms": ["BV", "追踪参数", "Cookie"],
+      "forbidden_new_numeric_claims": true, "query": "分享链接附带追踪参数时如何提取真正的视频编号？", "ground_truth_id": "seg-url"
+    },
+    {
+      "segment_id": "seg-subtitle", "start_ms": 42000, "end_ms": 70000,
+      "source_text": "转录来源依次选择用户字幕、侧挂字幕、内嵌字幕和本地ASR，并把实际来源写入Evidence。",
+      "legacy_text": "转录来源依次选择用户字幕、侧挂字幕、内嵌字幕和本地ASR，并把实际来源写入Evidence。",
+      "expected_concepts": ["字幕来源优先级", "Transcript Source"], "required_terms": ["侧挂字幕", "内嵌字幕", "ASR"],
+      "forbidden_new_numeric_claims": true, "query": "视频已经有字幕时还需要运行语音识别吗？", "ground_truth_id": "seg-subtitle"
+    },
+    {
+      "segment_id": "seg-chunk", "start_ms": 26000, "end_ms": 61000,
+      "source_text": "文档分块必须覆盖每一行，分块之间没有间断和重叠，Chunk UID由内容哈希与行号确定。",
+      "legacy_text": "文档分块必须覆盖每一行，分块之间没有间断和重叠，Chunk UID由内容哈希与行号确定。",
+      "expected_concepts": ["确定性文档分块", "Chunk UID"], "required_terms": ["每一行", "内容哈希", "行号"],
+      "forbidden_new_numeric_claims": true, "query": "How do we guarantee that every source line belongs to exactly one document chunk?", "ground_truth_id": "seg-chunk"
+    },
+    {
+      "segment_id": "seg-realpath", "start_ms": 71000, "end_ms": 103000,
+      "source_text": "路径策略先解析realpath，再检查目录边界，因此白名单内部的Junction若指向外部目录仍会被拒绝。",
+      "legacy_text": "路径策略先解析realpath，再检查目录边界，因此白名单内部的Junction若指向外部目录仍会被拒绝。",
+      "expected_concepts": ["真实路径边界", "Junction越界"], "required_terms": ["realpath", "Junction", "拒绝"],
+      "forbidden_new_numeric_claims": true, "query": "白名单里的链接跳到外部目录会不会绕过路径检查？", "ground_truth_id": "seg-realpath"
+    }
+  ]
+}

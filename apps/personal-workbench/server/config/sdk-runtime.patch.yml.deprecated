@@ -1,0 +1,3 @@
+# Personal Workbench now generates data/generated-sdk-runtime.patch.yml from
+# local-config.json during startup. This marker keeps the former location
+# documented without retaining machine-specific paths.

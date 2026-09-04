@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "allowedRoots": [
+    "."
+  ],
+  "limits": {
+    "readDefaultLines": 200,
+    "readMaxLines": 500,
+    "readMaxBytes": 2097152,
+    "globMaxPaths": 100,
+    "grepMaxMatches": 250,
+    "grepMaxFiles": 100,
+    "searchTimeoutMs": 15000
+  }
+}

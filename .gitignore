@@ -1,0 +1,89 @@
+# Dependencies and generated builds
+**/node_modules/
+**/dist/
+**/desktop-dist/
+**/desktop-release/
+**/dist-desktop/
+**/.vite/
+**/coverage/
+
+# Workbench user data and generated runtime state
+/personal-inbox/
+/runtime/
+/tmp/
+/validation-logs/
+/validation-fixtures/
+/screenshots/
+/releases/
+/reports/
+apps/personal-workbench/backup/
+apps/personal-workbench/cache/
+apps/personal-workbench/config/
+apps/personal-workbench/data/
+apps/personal-workbench/logs/
+apps/personal-workbench/output/
+apps/personal-workbench/personal-inbox/
+apps/personal-workbench/releases/
+apps/personal-workbench/runtime/
+apps/personal-workbench/screenshots/
+apps/personal-workbench/tmp/
+apps/personal-workbench/local-config.json
+apps/personal-workbench/local-config.json.*.tmp
+
+# Research Memory generated state
+memory/backups/
+memory/ingest/audit/
+memory/ingest/manifests/
+memory/tests/runtime/
+memory/database/*.db*
+memory/tests/*.db*
+
+# Historical local-only evidence helpers
+tests/*
+!tests/research-memory.test.mjs
+!tests/personal-safe-fs.test.mjs
+integrations/video2skill-legacy/provenance.json
+launchers/
+
+# Logs, databases, diagnostics and release binaries
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.zip
+*.exe
+*.msi
+*.dll
+*.pdb
+*.onnx
+*.bin
+*.gguf
+*.safetensors
+
+# Python environments and caches
+**/.venv/
+**/venv/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Editors and operating system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Historical local acceptance workers
+/apps/personal-workbench/server/workers/step30-*.ts
+/apps/personal-workbench/server/workers/step31-*.ts

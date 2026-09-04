@@ -1,0 +1,24 @@
+{
+  "manifest_version": 1,
+  "latest_schema_version": 4,
+  "migrations": [
+    {
+      "version": 2,
+      "name": "provenance",
+      "file": "002_provenance.sql",
+      "sha256": "63a3cfa2649b62828d50ce5756436545667c002ade50d498ec4e3db0da790d2a"
+    },
+    {
+      "version": 3,
+      "name": "document_ingestion",
+      "file": "003_document_ingestion.sql",
+      "sha256": "e067f4ecc2d33cbf0bffeeb198bb0bbde07eabdb5b16795b4b8efdc4b0f639ff"
+    },
+    {
+      "version": 4,
+      "name": "document_chunk_fts",
+      "file": "004_document_chunk_fts.sql",
+      "sha256": "5d3b155f60c26defe67b5e495d4ec423466e620a50e0dfa94d44a36799118512"
+    }
+  ]
+}

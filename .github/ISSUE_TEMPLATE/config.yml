@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 私密安全问题
+    url: https://github.com/LACANIA/personal-workbench/security/advisories/new
+    about: 涉及敏感信息泄露、权限绕过或未授权文件操作时，请使用私密安全报告。

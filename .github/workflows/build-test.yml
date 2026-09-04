@@ -1,0 +1,48 @@
+name: build-test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  workbench:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: apps/personal-workbench
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.7.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+          cache-dependency-path: apps/personal-workbench/pnpm-lock.yaml
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare synthetic Research Memory fixtures
+        working-directory: .
+        run: python -m memory.tests.prepare_public_fixtures
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Test
+        env:
+          PERSONAL_WORKBENCH_TEST_DSH_HOME: ${{ runner.temp }}\personal-workbench-dsh-home
+        run: pnpm test -- --run
+      - name: Build
+        run: pnpm run build
+      - name: Research Memory Python
+        working-directory: .
+        run: python -m unittest discover -s memory/tests -p "test_*.py"
+      - name: Research Memory Node
+        working-directory: .
+        run: node --test tests/research-memory.test.mjs
+      - name: personal-safe-fs
+        working-directory: .
+        run: node --test tests/personal-safe-fs.test.mjs
