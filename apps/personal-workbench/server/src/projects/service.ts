@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto'
-import { mkdir, readdir } from 'node:fs/promises'
+import { mkdir, readdir, realpath } from 'node:fs/promises'
 import path from 'node:path'
 import type {
   DatabaseRole,
@@ -124,7 +124,8 @@ export class ProjectContextService {
     const canonicalRoot = input.inputAssetId === undefined
       ? await assertAllowedExisting(rootPath, 'directory')
       : await this.inputs.authorizedProjectRoot(input.inputAssetId)
-    if (input.inputAssetId !== undefined && path.resolve(rootPath).toLowerCase() !== path.resolve(canonicalRoot).toLowerCase()) {
+    const submittedCanonicalRoot = input.inputAssetId === undefined ? canonicalRoot : await realpath(rootPath)
+    if (input.inputAssetId !== undefined && path.resolve(submittedCanonicalRoot).toLowerCase() !== path.resolve(canonicalRoot).toLowerCase()) {
       throw new Error('PROJECT_INPUT_PATH_MISMATCH')
     }
     const existing = this.database.getProjectContextByRoot(canonicalRoot)

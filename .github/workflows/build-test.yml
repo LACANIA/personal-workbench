@@ -34,6 +34,7 @@ jobs:
       - name: Test
         env:
           PERSONAL_WORKBENCH_TEST_DSH_HOME: ${{ runner.temp }}\personal-workbench-dsh-home
+          PERSONAL_WORKBENCH_SKIP_LOCAL_AI_TESTS: '1'
         run: pnpm test -- --run
       - name: Build
         run: pnpm run build

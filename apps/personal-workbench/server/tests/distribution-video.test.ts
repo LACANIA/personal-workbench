@@ -19,6 +19,8 @@ import { VideoKnowledgeRepository } from '../src/video/repository.ts'
 import { VideoKnowledgeService } from '../src/video/service.ts'
 import { parseSubtitle, renderTranscript, segmentSubtitle } from '../src/video/subtitle.ts'
 
+const describeLocalVideoKnowledge = process.env.PERSONAL_WORKBENCH_SKIP_LOCAL_AI_TESTS === '1' ? describe.skip : describe
+
 const SRT = `1
 00:00:00,000 --> 00:00:04,000
 Project Context connects tasks and files.
@@ -99,7 +101,7 @@ describe('STEP-26 portable config', () => {
   })
 })
 
-describe('STEP-26 Video Knowledge Agent', () => {
+describeLocalVideoKnowledge('STEP-26 Video Knowledge Agent', () => {
   let root = ''
   let database: WorkbenchDatabase
   let repository: VideoKnowledgeRepository
