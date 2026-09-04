@@ -44,6 +44,8 @@ jobs:
       - name: Research Memory Node
         working-directory: .
         run: node --test tests/research-memory.test.mjs
+      - name: Install ripgrep for personal-safe-fs tests
+        run: choco install ripgrep --yes --no-progress
       - name: personal-safe-fs
         working-directory: .
         run: node --test tests/personal-safe-fs.test.mjs
